@@ -1,5 +1,10 @@
 <template>
   <v-toobar-title>
-    My Blog
+    {{title}}
   </v-toobar-title>
 </template>
+<script>
+export default {
+  props: ['title']
+}
+</script>

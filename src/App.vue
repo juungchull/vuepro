@@ -6,7 +6,7 @@
       dark
     >
     <v-app-bar-nav-icon @click="drawer= !drawer"/>
-      <site-title></site-title>
+      <site-title :title="title"></site-title>
     <v-spacer/>
     <v-btn icon to="/about">
       <v-icon>mdi-magnify</v-icon>
@@ -20,24 +20,24 @@
     </v-navigation-drawer>
     <v-content>
       <router-view/>
-    </v-content>
-      <v-footer app color="primary" dark absolute>
-    <v-spacer></v-spacer>
-    <div>&copy; {{ new Date().getFullYear() }}</div>
-  </v-footer>
+      </v-content>
+      <site-footer :footer="footer"></site-footer>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import SiteTitle from '@/views/site/title.vue'
+import SiteFooter from '@/views/site/footer.vue'
 
 export default Vue.extend({
-  components: { SiteTitle },
+  components: { SiteTitle, SiteFooter },
   name: 'App',
 
   data: () => ({
-    drawer: false
+    drawer: false,
+    footer: '푸터입니다.',
+    title: '나의 블로그입니다.'
   })
 })
 </script>
